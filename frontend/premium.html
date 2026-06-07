@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Premium - AI Chat Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .premium-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .premium-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      gap: 2.5rem;
+    }
+    .hero { text-align: center; }
+    .hero h1 { font-size: 2rem; font-weight: 700; }
+    .hero h1 span { color: var(--accent2); }
+    .hero p { color: var(--muted); margin-top: .5rem; }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 700px;
+      width: 100%;
+    }
+    .plan {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .plan.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .plan-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 20px;
+      padding: .15rem .7rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: .25rem;
+      align-self: flex-start;
+    }
+    .plan-name { font-size: 1.1rem; font-weight: 700; }
+    .plan-price { font-size: 2rem; font-weight: 700; }
+    .plan-price span { font-size: .9rem; color: var(--muted); font-weight: 400; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: .4rem; margin-top: .5rem; }
+    .plan-features li { font-size: .85rem; color: var(--muted); }
+    .plan-features li::before { content: "✓  "; color: var(--success); font-weight: 700; }
+    .plan .btn { margin-top: auto; padding-top: 1rem; }
+
+    .contact-note {
+      max-width: 480px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body class="premium-page">
+
+  <nav class="nav">
+    <span class="logo">AI <span>Chat</span></span>
+    <div class="nav-right">
+      <a href="/chat.html" class="btn btn-ghost" style="font-size:.8rem;padding:.35rem .9rem;">← Back to Chat</a>
+    </div>
+  </nav>
+
+  <div class="premium-body">
+    <div class="hero">
+      <div style="font-size:3rem;margin-bottom:.5rem">⭐</div>
+      <h1>Upgrade to <span>Premium</span></h1>
+      <p>You've used all your free messages for today. Unlock unlimited access.</p>
+    </div>
+
+    <div class="plans">
+      <!-- Free -->
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0 <span>/ month</span></div>
+        <ul class="plan-features">
+          <li>100 messages per day</li>
+          <li>Chat history stored</li>
+          <li>WhatsApp integration (read-only)</li>
+          <li>1 e-commerce store</li>
+        </ul>
+        <a href="/chat.html" class="btn btn-ghost" style="margin-top:1.5rem;text-align:center">Current Plan</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="plan featured">
+        <span class="plan-badge">Most Popular</span>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">$9 <span>/ month</span></div>
+        <ul class="plan-features">
+          <li>Unlimited messages</li>
+          <li>Priority GPT-OSS-120B access</li>
+          <li>Full WhatsApp integration</li>
+          <li>Up to 5 e-commerce stores</li>
+          <li>Conversation analytics</li>
+          <li>API access</li>
+        </ul>
+        <a href="mailto:sales@example.com?subject=AI+Chat+Pro+Plan" class="btn btn-primary" style="margin-top:1.5rem;text-align:center">Get Pro →</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="plan">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Custom</div>
+        <ul class="plan-features">
+          <li>Unlimited everything</li>
+          <li>Dedicated model instance</li>
+          <li>Custom integrations</li>
+          <li>SLA & support</li>
+          <li>On-premise option</li>
+        </ul>
+        <a href="mailto:sales@example.com?subject=Enterprise+Inquiry" class="btn btn-ghost" style="margin-top:1.5rem;text-align:center">Contact Sales</a>
+      </div>
+    </div>
+
+    <p class="contact-note">
+      Payments and subscriptions are managed manually at this stage.
+      Contact <a href="mailto:sales@example.com">sales@example.com</a> and we'll activate your plan within 24 hours.
+    </p>
+  </div>
+
+</body>
+</html>

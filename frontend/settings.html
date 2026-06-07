@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - AI Chat Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .settings-page { display: flex; flex-direction: column; min-height: 100vh; }
+    .settings-body {
+      flex: 1;
+      max-width: 680px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }
+    h3 { font-size: .95rem; font-weight: 600; margin-bottom: .9rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .section { margin-bottom: 2rem; }
+    .save-row { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+    .toast {
+      display: none;
+      background: var(--success);
+      color: #000;
+      padding: .4rem .9rem;
+      border-radius: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .toast.show { display: inline-block; }
+    .back-link { color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
+<body class="settings-page">
+
+  <nav class="nav">
+    <span class="logo">AI <span>Chat</span> — Settings</span>
+    <div class="nav-right">
+      <a href="/chat.html" class="btn btn-ghost" style="font-size:.8rem;padding:.35rem .9rem;">← Back to Chat</a>
+    </div>
+  </nav>
+
+  <div class="settings-body">
+    <h2>Integration Settings</h2>
+
+    <!-- WhatsApp -->
+    <div class="section card">
+      <h3>WhatsApp</h3>
+
+      <div class="form-group">
+        <label for="wa-number">WhatsApp Business Number</label>
+        <input type="text" id="wa-number" placeholder="+92 300 1234567" />
+      </div>
+      <div class="form-group">
+        <label for="wa-api-key">WhatsApp Cloud API Key</label>
+        <input type="password" id="wa-api-key" placeholder="Enter API key (leave blank to keep existing)" />
+      </div>
+      <div class="toggle-wrap" style="margin-bottom:1rem">
+        <div class="toggle" id="wa-toggle" data-on="false"></div>
+        <span id="wa-toggle-label" style="font-size:.88rem;color:var(--muted)">Disabled</span>
+      </div>
+      <div class="save-row">
+        <button class="btn btn-primary" onclick="saveWhatsApp()">Save WhatsApp</button>
+        <span class="toast" id="wa-toast">Saved ✓</span>
+      </div>
+    </div>
+
+    <!-- E-commerce -->
+    <div class="section card">
+      <h3>E-Commerce</h3>
+
+      <div class="form-group">
+        <label for="ec-type">Platform</label>
+        <select id="ec-type">
+          <option value="shopify">Shopify</option>
+          <option value="woocommerce">WooCommerce</option>
+          <option value="custom">Custom / Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ec-url">Store URL</label>
+        <input type="url" id="ec-url" placeholder="https://yourstore.myshopify.com" />
+      </div>
+      <div class="form-group">
+        <label for="ec-api-key">Store API Key</label>
+        <input type="password" id="ec-api-key" placeholder="Enter API key (leave blank to keep existing)" />
+      </div>
+      <div class="toggle-wrap" style="margin-bottom:1rem">
+        <div class="toggle" id="ec-toggle" data-on="false"></div>
+        <span id="ec-toggle-label" style="font-size:.88rem;color:var(--muted)">Disabled</span>
+      </div>
+      <div class="save-row">
+        <button class="btn btn-primary" onclick="saveEcommerce()">Save E-commerce</button>
+        <span class="toast" id="ec-toast">Saved ✓</span>
+      </div>
+    </div>
+
+    <p class="muted" style="margin-top:1.5rem">
+      API keys are stored encrypted in the database and are never exposed in plain text.
+    </p>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

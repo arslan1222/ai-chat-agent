@@ -1,0 +1,151 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0d0f14;
+  --surface:  #161a22;
+  --card:     #1e2430;
+  --border:   rgba(255,255,255,0.08);
+  --text:     #e8eaf0;
+  --muted:    #8890a4;
+  --accent:   #5b7fff;
+  --accent2:  #a78bfa;
+  --danger:   #ff5c5c;
+  --success:  #34d399;
+  --radius:   12px;
+  --font:     'Inter', system-ui, sans-serif;
+  --mono:     'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+/* ── Utility ────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+.muted  { color: var(--muted); font-size: .85rem; }
+.danger { color: var(--danger); }
+.success{ color: var(--success); }
+
+/* ── Nav Bar ────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem 1.6rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -.02em; color: var(--text); }
+.nav .logo span { color: var(--accent); }
+.nav .nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav .avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+/* ── Button ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: .9rem;
+  font-family: var(--font);
+  font-weight: 500;
+  transition: opacity .15s, transform .1s;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { opacity: .88; }
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: var(--card); color: var(--text); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { opacity: .85; }
+
+/* ── Card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* ── Form controls ───────────────────────────────────────────── */
+input[type="text"],
+input[type="url"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: .9rem;
+  padding: .6rem .9rem;
+  outline: none;
+  transition: border-color .15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+label { display: block; margin-bottom: .35rem; font-size: .85rem; color: var(--muted); }
+.form-group { margin-bottom: 1.1rem; }
+
+/* ── Toggle switch ──────────────────────────────────────────── */
+.toggle-wrap { display: flex; align-items: center; gap: .75rem; }
+.toggle {
+  width: 40px; height: 22px;
+  background: var(--border);
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background .2s;
+}
+.toggle.on { background: var(--accent); }
+.toggle::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  top: 3px; left: 3px;
+  transition: left .2s;
+}
+.toggle.on::after { left: 21px; }
+
+/* ── Usage pill ─────────────────────────────────────────────── */
+.usage-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .3rem .75rem;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: .8rem;
+  color: var(--muted);
+}
+.usage-pill.warn  { border-color: #f59e0b; color: #f59e0b; }
+.usage-pill.full  { border-color: var(--danger); color: var(--danger); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav { padding: .7rem 1rem; }
+}
